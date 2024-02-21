@@ -9,8 +9,7 @@
 	} from "$lib/services/userService";
 	import { user } from "$lib/stores/user";
 	import * as Tabs from "$lib/components/ui/tabs";
-	import ShareOnX from "$lib/components/charts/ShareOnX.svelte";
-	import { page } from "$app/stores";
+	import ShareOnSocialMedia from "$lib/components/charts/ShareOnSocialMedia.svelte";
 	import Spinner from "$lib/components/Spinner.svelte";
 	import CompareFriend from "./CompareFriend.svelte";
 
@@ -215,11 +214,8 @@
 									/>
 								</div>
 								<div class="flex justify-center items-center gap-2">
-									<p>Share on X</p>
-									<ShareOnX
-										text={entityBarChartShareText(entity, data)}
-										url={$page.url.origin}
-									/>
+									<p>Share on Social Media</p>
+									<ShareOnSocialMedia text={entityBarChartShareText(entity, data)} />
 								</div>
 							{/if}
 						{/await}
@@ -260,8 +256,8 @@
 								friendLineColor={"#006738"}
 							/>
 							<div class="flex justify-center items-center gap-2">
-								<p>Share on X</p>
-								<ShareOnX text={recentChartShareText(data)} url={$page.url.origin} />
+								<p>Share on Social Media</p>
+								<ShareOnSocialMedia text={recentChartShareText(data)} />
 							</div>
 						{/if}
 					{/await}
