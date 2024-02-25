@@ -21,7 +21,6 @@
 	async function getYouMightLike() {
 		const token = await $user!.getIdToken();
 		const response = await recommendYouMightLike(token, 10);
-		console.log(response);
 		if (response.status !== 200) {
 			return [];
 		}
@@ -73,7 +72,6 @@
 	async function getSinceYouLike() {
 		const token = await $user!.getIdToken();
 		const response = await recommendSinceYouLike(token, 10);
-		console.log(response);
 		if (response.status !== 200) {
 			return {};
 		}
