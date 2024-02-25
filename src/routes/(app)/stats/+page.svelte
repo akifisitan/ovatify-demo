@@ -152,13 +152,14 @@
 
 <div class="flex justify-between items-center w-full px-16">
 	<p class="text-5xl font-medium text-[#dfe3ee]">
-		{#if friendToCompareName}
+		Your Taste
+		<!-- {#if friendToCompareName}
 			You & {friendToCompareName}'s Tastes
 		{:else}
 			Your Taste
-		{/if}
+		{/if} -->
 	</p>
-	<div class="flex gap-x-2">
+	<!-- <div class="flex gap-x-2">
 		{#if friendToCompareId !== null}
 			<button
 				on:click={resetComparison}
@@ -169,7 +170,7 @@
 			</button>
 		{/if}
 		<CompareFriend on:compare={handleCompareFriend} />
-	</div>
+	</div> -->
 </div>
 
 <div class="flex w-full h-full pt-5">

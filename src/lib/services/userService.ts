@@ -171,11 +171,67 @@ export async function getEntityCount(
 	entity: "artists" | "genres" | "moods" | "tempos",
 	numberOfSongs: number = 10
 ) {
-	const response = await api.get(
-		`users/get-favorite-${entity}/?number_of_songs=${numberOfSongs}`,
-		token
-	);
-	return response;
+	// const response = await api.get(
+	// 	`users/get-favorite-${entity}/?number_of_songs=${numberOfSongs}`,
+	// 	token
+	// );
+	console.log("Mocked getEntityCount |", token[0], entity, numberOfSongs);
+	let mockResponse;
+	if (entity === "moods") {
+		mockResponse = {
+			data: {
+				Excited: 7,
+				Relaxed: 2,
+				Happy: 1
+			},
+			error: null,
+			status: 200
+		} as any;
+	} else if (entity === "artists") {
+		mockResponse = {
+			data: {
+				Koven: 2,
+				"The Luna Sequence": 1,
+				"Casey Edwards": 1,
+				"Fractal Dreamers": 1,
+				Rayden: 1,
+				Kimi: 1,
+				Nightcall: 1,
+				Tristam: 1,
+				"Fox Stevenson": 1,
+				"Anna Yvette": 1
+			},
+			error: null,
+			status: 200
+		} as any;
+	} else if (entity === "genres") {
+		mockResponse = {
+			data: {
+				"Melodic Dubstep": 2,
+				Chillstep: 2,
+				"Dancefloor Dnb": 2,
+				Complextro: 2,
+				"Gaming Edm": 2,
+				"Future Rock": 1,
+				"Sound Team": 1,
+				Speedrun: 1,
+				Brostep: 1,
+				Edm: 1
+			},
+			error: null,
+			status: 200
+		} as any;
+	} else if (entity === "tempos") {
+		mockResponse = {
+			data: {
+				Fast: 7,
+				Medium: 3
+			},
+			error: null,
+			status: 200
+		};
+	}
+	return mockResponse;
 }
 
 export async function getFriendEntityCount(
@@ -326,8 +382,37 @@ export async function exportSongsByArtist(token: string, artist: string) {
 }
 
 export async function getRecentAdditionCounts(token: string) {
-	const response = await api.get(`users/get-recent-addition-counts`, token);
-	return response;
+	// const response = await api.get(`users/get-recent-addition-counts`, token);
+	console.log("Mocked getRecentAdditionCounts |", token[0]);
+	const mockResponse = {
+		data: {
+			song_counts: [
+				{
+					date: "21-02",
+					count: 0
+				},
+				{
+					date: "22-02",
+					count: 0
+				},
+				{
+					date: "23-02",
+					count: 0
+				},
+				{
+					date: "24-02",
+					count: 0
+				},
+				{
+					date: "25-02",
+					count: 1
+				}
+			]
+		},
+		error: null,
+		status: 200
+	};
+	return mockResponse;
 }
 
 export async function getFriendRecentAdditionCounts(token: string, friend_id: string) {
