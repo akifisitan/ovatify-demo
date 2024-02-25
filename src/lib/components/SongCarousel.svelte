@@ -131,7 +131,6 @@
 											songs: data.map((song) => song.id)
 										};
 										const response = await saveAsPlaylist(token, body);
-										console.log(response);
 										if (response.status === 201) {
 											displayToast({
 												message: "Songs saved as a playlist successfully",

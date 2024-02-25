@@ -18,7 +18,6 @@
 	async function getPlaylists() {
 		const token = await $user!.getIdToken();
 		const response = await getUserPlaylists(token);
-		console.log(response);
 		if (response.status === 200) {
 			return response.data.items as CarouselPlaylist[];
 		} else {

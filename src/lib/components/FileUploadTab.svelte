@@ -35,7 +35,6 @@
 		loading = true;
 		const token = await $user!.getIdToken();
 		const response = await uploadSongFile(token, file!);
-		console.log(response);
 		if (response.status === 201) {
 			const data = response.data.items;
 			data?.forEach((element: { message?: string; error?: string }) => {
@@ -45,6 +44,7 @@
 					displayToast({ type: "success", message: element.message });
 				}
 			});
+			displayToast({ type: "success", message: "File uploaded successfully" });
 		} else if (response.status === 400) {
 			displayToast({
 				type: "error",

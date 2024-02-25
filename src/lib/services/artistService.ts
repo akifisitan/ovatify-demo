@@ -1,6 +1,24 @@
-import * as api from "$lib/utils/api";
-
 export async function getUserArtistNames(token: string) {
-	const response = await api.get("users/get-library-artist-names/", token);
-	return response;
+	console.log("Mocked getUserArtistNames |", token[0]);
+	const mockResponse = {
+		data: {
+			artists: [
+				"Kimi",
+				"Casey Edwards",
+				"Anna Yvette",
+				"Fractal Dreamers",
+				"Fox Stevenson",
+				"Nightcall",
+				"Feint",
+				"Rayden",
+				"Elizaveta",
+				"Koven",
+				"Tristam",
+				"Ellis"
+			]
+		},
+		error: null,
+		status: 200
+	} as any;
+	return mockResponse;
 }

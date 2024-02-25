@@ -53,7 +53,6 @@
 			name === "genre"
 				? await exportSongsByGenre(token, selectedItem)
 				: await exportSongsByArtist(token, selectedItem);
-		console.log(response);
 		if (response.status === 200) {
 			const blob = new Blob([JSON.stringify(response.data, null, 2)], {
 				type: "application/json"

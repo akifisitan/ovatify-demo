@@ -1,13 +1,103 @@
-import { songDb } from "$lib/mock/mockSongDb";
 import * as api from "$lib/utils/api";
 import { getFromCache, saveToCache, songCache } from "$lib/utils/caches";
 
 export async function searchSpotifySong(token: string, query: string) {
-	const response = await api.get(`songs/search-spotify/?search_string=${query}`, token);
-	return response;
+	// return await api.get(`songs/search-spotify/?search_string=${query}`, token);
+	console.log("Mocked searchSpotifySong |", token[0], query);
+	const mockResponse = {
+		data: {
+			message: "Search successful",
+			results: [
+				{
+					track_name: "Beside Still Waters",
+					album_name: "Underneath",
+					artist: "The Luna Sequence",
+					release_year: "2008",
+					spotify_id: "3lEzTG0DV4pKjA5ZZiY0C9",
+					album_url: "https://i.scdn.co/image/ab67616d0000b2734eec2ee2b4d80ccc9eaf51d7"
+				},
+				{
+					track_name: "Veil Walled Garden",
+					album_name: "Darkness Leaves Nowhere to Go",
+					artist: "The Luna Sequence",
+					release_year: "2016",
+					spotify_id: "6YLWkUzdBzCtXIGngc1ROj",
+					album_url: "https://i.scdn.co/image/ab67616d0000b2732d976d04b6837b4416547bd8"
+				},
+				{
+					track_name: "Lyng",
+					album_name: "Lyng",
+					artist: "Luna S.",
+					release_year: "2022",
+					spotify_id: "47qB0XJToyyOis9VCopt5Q",
+					album_url: "https://i.scdn.co/image/ab67616d0000b273aea4d4b45be90ce4d78ab488"
+				},
+				{
+					track_name: "After Dreams Isolate",
+					album_name: "The Day the Curse Grew Stronger",
+					artist: "The Luna Sequence",
+					release_year: "2013",
+					spotify_id: "3WA7CkDfu5qOLFfIxubZeL",
+					album_url: "https://i.scdn.co/image/ab67616d0000b273b72ed25cbf66f27a4338c9ee"
+				},
+				{
+					track_name: "Hope on Black Wings",
+					album_name: "They Follow You Home",
+					artist: "The Luna Sequence",
+					release_year: "2009",
+					spotify_id: "6wf1ORtEszV6zL3idPPmXx",
+					album_url: "https://i.scdn.co/image/ab67616d0000b2738573ae0ee5915aa372c9d709"
+				},
+				{
+					track_name: "Tallkrona",
+					album_name: "Tallkrona",
+					artist: "Luna S.",
+					release_year: "2021",
+					spotify_id: "0SY2SUY5MH7SYd4TTIzgfJ",
+					album_url: "https://i.scdn.co/image/ab67616d0000b2739e197c69b1f7b334684375c2"
+				},
+				{
+					track_name: "Around The World - The Luna Sequence Remix",
+					album_name: "Around The World",
+					artist: "Atlas Plug, The Luna Sequence",
+					release_year: "2009",
+					spotify_id: "4TUwbxOQ4ySl45SGdKR9oh",
+					album_url: "https://i.scdn.co/image/ab67616d0000b2731c40a3c17ed76a0b17dd1f62"
+				},
+				{
+					track_name: "Luna's Song",
+					album_name: "Dog On The Floor",
+					artist: "Raffi",
+					release_year: "2018",
+					spotify_id: "3zjgjxmf1nkX3vOAXzK7oG",
+					album_url: "https://i.scdn.co/image/ab67616d0000b27308ad7e00432aee805a913d44"
+				},
+				{
+					track_name: "The Famine",
+					album_name: "They Follow You Home",
+					artist: "The Luna Sequence",
+					release_year: "2009",
+					spotify_id: "5LThCQJfnJMmUqdkAgA5P2",
+					album_url: "https://i.scdn.co/image/ab67616d0000b2738573ae0ee5915aa372c9d709"
+				},
+				{
+					track_name: "Bloom in the Shadows",
+					album_name: "I Only Remember Falling",
+					artist: "The Luna Sequence",
+					release_year: "2023",
+					spotify_id: "5N5S0poP9W64HsTp8BRCYW",
+					album_url: "https://i.scdn.co/image/ab67616d0000b273d16d31dbb7bc4328e8ace46e"
+				}
+			]
+		},
+		error: null,
+		status: 200
+	} as any;
+	return mockResponse;
 }
 
 export async function searchDatabaseSong(token: string, query: string) {
+	// return await api.get(`songs/search-db/?search_string=${query}`, token);
 	console.log("Mocked searchDatabaseSong |", token[0], query);
 	const mockResponse = {
 		data: {
@@ -118,12 +208,21 @@ export async function searchDatabaseSong(token: string, query: string) {
 }
 
 export async function addSong(token: string, id: string, rating: number) {
-	const body = {
-		spotify_id: id,
-		rating: rating
+	// const body = {
+	// 	spotify_id: id,
+	// 	rating: rating
+	// };
+	// const response = await api.post("songs/add-song/", token, body);
+	// console.log(response);
+	console.log("Mocked addSong |", token[0], id, rating);
+	const mockResponse = {
+		data: {
+			message: "Song added successfully"
+		},
+		error: null,
+		status: 200
 	};
-	const response = await api.post("songs/add-song/", token, body);
-	return response;
+	return mockResponse;
 }
 
 export async function getSongById(token: string, id: string) {

@@ -54,11 +54,9 @@
 
 	async function getPlaylist(selectedPlaylistId: string | null, refresh: boolean) {
 		if (!selectedPlaylistId) return;
-		console.log(`Getting playlist ${selectedPlaylistId}`);
 		loadingPlaylist = true;
 		const token = await $user!.getIdToken();
 		playlist = await getPlaylistById(token, selectedPlaylistId);
-		console.log(`Selected playlist:`, playlist);
 		loadingPlaylist = false;
 	}
 
@@ -151,37 +149,12 @@
 			return;
 		}
 		if (loading) return;
-		const spotifyToken = await spotify.getAccessToken();
-		if (!spotifyToken) {
-			await spotify.authenticate();
-			return;
-		}
 		importPlaylistSpotifyDialogOpen = true;
 	}
 
 	async function handleImportSpotify() {
 		if (loading) return;
-		const spotifyToken = await spotify.getAccessToken();
-		if (!spotifyToken) {
-			await spotify.authenticate();
-			return;
-		}
 		loading = true;
-		const { id: user_id } = await spotify.currentUser.profile();
-		if (!playlist) {
-			displayToast({ message: "Error importing playlist", type: "error" });
-			return;
-		}
-		const createdPlaylist = await spotify.playlists.createPlaylist(user_id, {
-			name: playlist.name,
-			description: playlist.description
-		});
-		if (playlist.songs.length > 0) {
-			await spotify.playlists.addItemsToPlaylist(
-				createdPlaylist.id,
-				playlist.songs.map((song) => `spotify:track:${song.id}`)
-			);
-		}
 		displayToast({
 			message: "Playlist imported to Spotify successfully",
 			type: "success"

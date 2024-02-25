@@ -80,6 +80,26 @@ export async function getSongsByGenreName(
 }
 
 export async function getUserGenreNames(token: string) {
-	const response = await api.get("users/get-library-genre-names/", token);
-	return response;
+	console.log("Mocked getUserGenreNames |", token[0]);
+	const mockResponse = {
+		data: {
+			genres: [
+				"Chillstep",
+				"Edm",
+				"Complextro",
+				"Speedrun",
+				"Dancefloor Dnb",
+				"Brostep",
+				"Gaming Edm",
+				"Electro House",
+				"Deep Indie Singer-Songwriter",
+				"Sound Team",
+				"Melodic Dubstep",
+				"Filthstep"
+			]
+		},
+		error: null,
+		status: 200
+	} as any;
+	return mockResponse;
 }
