@@ -77,6 +77,12 @@ export async function saveAsPlaylist(
 	token: string,
 	body: { name: string; description: string; songs: string[] }
 ) {
-	const response = await api.post(`users/save-playlist/`, token, body);
-	return response;
+	console.log("Mocked saveAsPlaylist |", token[0], body);
+	return {
+		data: {
+			playlist_id: 112
+		},
+		error: null,
+		status: 201
+	};
 }

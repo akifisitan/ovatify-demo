@@ -59,11 +59,6 @@
 							class="py-0 px-2 h-8"
 							on:click={async () => {
 								if (loading) return;
-								const spotifyToken = await spotify.getAccessToken();
-								if (!spotifyToken) {
-									await spotify.authenticate();
-									return;
-								}
 								importPlaylistSpotifyDialogOpen = true;
 							}}><Icons.spotify class="w-5 h-5" /></Button
 						>
@@ -82,23 +77,8 @@
 								<form
 									on:submit|preventDefault={async () => {
 										if (loading) return;
-										const spotifyToken = await spotify.getAccessToken();
-										if (!spotifyToken) {
-											await spotify.authenticate();
-											return;
-										}
+										console.log("Mocked import playlist to spotify");
 										loading = true;
-										const { id: user_id } = await spotify.currentUser.profile();
-										const createdPlaylist = await spotify.playlists.createPlaylist(
-											user_id,
-											{ name: `Ovatify - ${title}` }
-										);
-										if (data.length > 0) {
-											await spotify.playlists.addItemsToPlaylist(
-												createdPlaylist.id,
-												data.map((song) => `spotify:track:${song.id}`)
-											);
-										}
 										displayToast({
 											message: "Playlist imported to Spotify successfully",
 											type: "success"

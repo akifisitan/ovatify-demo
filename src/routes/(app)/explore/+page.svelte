@@ -32,7 +32,6 @@
 		noFriends = false;
 		const token = await $user!.getIdToken();
 		const response = await recommendFriendsListen(token, 10);
-		console.log(response);
 		if (response.status === 200) {
 			return response.data.tracks_info;
 		} else if (
@@ -58,7 +57,6 @@
 	async function getFriendMix() {
 		const token = await $user!.getIdToken();
 		const response = await recommendFriendMix(token, 10);
-		console.log(response);
 		if (response.status === 200) {
 			return response.data.tracks_info;
 		} else if (

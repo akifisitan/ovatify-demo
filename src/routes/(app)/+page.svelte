@@ -41,7 +41,6 @@
 		await sleep(1);
 		const token = await $user!.getIdToken();
 		const response = await getFriendSuggestionCount(token);
-		console.log(response);
 		if (response.status === 200) {
 			const count = response.data.count;
 			if (count && count > 0) {
@@ -57,8 +56,6 @@
 				} else {
 					console.log("Error marking friend suggestions as seen");
 				}
-			} else {
-				console.log("No unread suggestions");
 			}
 		} else {
 			console.log("Error getting friend suggestion count");

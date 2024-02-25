@@ -60,8 +60,16 @@ export async function suggestSong(
 }
 
 export async function getFriendSuggestionCount(token: string) {
-	const response = await api.get(`users/get-suggestion-count/`, token);
-	return response;
+	console.log("Mocked getFriendSuggestionCount |", token[0]);
+	const mockResponse = {
+		data: {
+			count: 0
+		},
+		error: null,
+		status: 200
+	};
+
+	return mockResponse;
 }
 
 export async function setFriendSuggestionsAsSeen(token: string) {

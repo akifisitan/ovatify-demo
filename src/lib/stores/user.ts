@@ -17,3 +17,11 @@ function userStore() {
 }
 
 export const user = userStore();
+
+// const initialUser = {
+// 	getIdToken() {
+// 		return "";
+// 	}
+// };
+
+// export const user = writable(initialUser);
