@@ -7,24 +7,18 @@
 	import { fade } from "svelte/transition";
 	import Spinner from "$lib/components/Spinner.svelte";
 	import { Button } from "$lib/components/ui/button";
+	import { defaultImageUrl } from "$lib/constants";
+	import { userData } from "$lib/stores/userData";
 
 	export let dialogOpen: boolean;
 
 	async function getSpotifyProfile() {
 		await sleep(0.15);
-		const token = await spotify.getAccessToken();
-		if (!token) return null;
-		try {
-			const { display_name, images, followers } = await spotify.currentUser.profile();
-			return {
-				username: display_name,
-				imageUrl: images.at(-1)?.url,
-				followerCount: followers.total
-			};
-		} catch (error) {
-			console.log(error);
-			return null;
-		}
+		return {
+			username: $userData.name,
+			imageUrl: $userData.img_url,
+			followerCount: 5
+		};
 	}
 </script>
 
@@ -54,7 +48,7 @@
 					<Button
 						variant="destructive"
 						on:click={() => {
-							spotify.logOut();
+							console.log("Mocked spotify logout");
 							dialogOpen = false;
 							displayToast({ type: "success", message: "Logged out of Spotify" });
 						}}>Log out</Button

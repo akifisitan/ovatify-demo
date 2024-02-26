@@ -269,18 +269,48 @@ export async function editUserProfile(
 		data_sharing_consent?: boolean;
 	}
 ) {
-	const response = await api.put(`users/edit-user-preferences/`, token, body);
-	return response;
+	return await api.put(`users/edit-user-preferences/`, token, body);
+	console.log("Mocked editUserProfile |", token[0], body);
+	const mockResponse = {
+		data: null,
+		error: null,
+		status: 204
+	};
+	return mockResponse;
 }
 
 export async function getUserProfileStats(token: string) {
-	const response = await api.get("users/get-profile-stats/", token);
-	return response;
+	return await api.get("users/get-profile-stats/", token);
+	console.log("Mocked getUserProfileStats |", token[0]);
+	const mockResponse = {
+		data: {
+			rated_count: 11,
+			friend_count: 3,
+			rating_average: 4.82
+		},
+		error: null,
+		status: 200
+	} as any;
+	return mockResponse;
 }
 
 export async function getUserProfile(token: string) {
-	const response = await api.get(`users/get-user-profile/`, token);
-	return response;
+	return await api.get(`users/get-user-profile/`, token);
+	console.log("Mocked getUserProfile |", token[0]);
+	const mockResponse = {
+		data: {
+			id: "8rk0Huh902bhmog6ckYwcMux10h1",
+			name: "akifisitan",
+			img_url: "https://cdn.betterttv.net/emote/5f409d334510395d822c2885/3x.webp",
+			preferences: {
+				data_processing: false,
+				data_sharing: true
+			}
+		},
+		error: null,
+		status: 200
+	};
+	return mockResponse;
 }
 
 export async function exportSongsByGenre(token: string, genre: string) {

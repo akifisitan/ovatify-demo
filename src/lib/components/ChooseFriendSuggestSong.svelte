@@ -23,7 +23,6 @@
 
 	async function getAllFriends() {
 		const token = await $user!.getIdToken();
-		// await sleep(100);
 		const response = await getUserFriends(token);
 		if (response.status !== 200) {
 			return [];
@@ -47,7 +46,6 @@
 			receiver_user: chosenFriendUsername,
 			song_id: songId
 		});
-		console.log(response);
 		if (response.status === 200) {
 			displayToast({
 				message: `Song suggested to ${chosenFriendUsername} successfully`,
