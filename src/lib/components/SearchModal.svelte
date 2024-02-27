@@ -58,7 +58,6 @@
 		querying = true;
 		const token = await $user!.getIdToken();
 		const response = await searchDatabaseSong(token, query);
-		console.log(response);
 		if (response.status === 200) {
 			queryResult = response.data.songs_info;
 		} else {

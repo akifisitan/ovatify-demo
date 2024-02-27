@@ -20,7 +20,7 @@ export function resetUserData() {
 // const initialUserDataState = {
 // 	id: "8rk0Huh902bhmog6ckYwcMux10h1",
 // 	name: "akifisitan",
-// 	img_url: "https://cdn.betterttv.net/emote/5f409d334510395d822c2885/3x.webp",
+// 	img_url: "/images/avatars/bird.webp",
 // 	preferences: {
 // 		data_processing: true,
 // 		data_sharing: true

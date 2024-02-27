@@ -8,9 +8,7 @@
 	export let chartTitle: string;
 	export let xValues: string[];
 	export let yValues: number[];
-	export let friendyValues: number[];
 	export let lineColor = "#3498db";
-	export let friendLineColor = "#e54f2a";
 
 	onMount(() => {
 		const context = canvas.getContext("2d");
@@ -97,21 +95,6 @@
 			borderWidth: 2,
 			fill: false
 		};
-		myChart.update();
-	}
-
-	$: if (myChart && friendyValues) {
-		if (friendyValues.length) {
-			myChart.data.datasets[1] = {
-				data: friendyValues,
-				label: "Friend's Number of Songs",
-				borderColor: friendLineColor,
-				borderWidth: 2,
-				fill: false
-			};
-		} else {
-			myChart.data.datasets.splice(1, 1);
-		}
 		myChart.update();
 	}
 </script>

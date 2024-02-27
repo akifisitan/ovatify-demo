@@ -1,16 +1,4 @@
 import { genreDb } from "$lib/mock/mockGenreDb";
-import * as api from "$lib/utils/api";
-
-export async function getSongGenres(token: string, number: number) {
-	const response = await api.get(`songs/get-genres/?number_of_genres=${number}`, token);
-	if (response.status !== 200) {
-		console.log("Error fetching genres");
-		console.log(response);
-		return null;
-	}
-	const data = response.data.genres;
-	return data;
-}
 
 export async function getRandomSongGenres(token: string, number: number) {
 	console.log("Mocked getRandomSongGenres |", token[0], number);

@@ -214,5 +214,84 @@ export const playlistDb = new Map([
 			user_id: "8rk0Huh902bhmog6ckYwcMux10h1",
 			friend_group_id: null
 		}
+	],
+	[
+		115,
+		{
+			id: 115,
+			name: "Group Playlist",
+			description: "Group Playlist Description",
+			songs: [
+				{
+					id: "0xRLmFcXFtWBl8suWRiKj3",
+					name: "Guardian",
+					release_year: 2012,
+					img_url: "https://i.scdn.co/image/ab67616d0000b273e030820bbd60a7a025be4dd0",
+					main_artist: "Tristam"
+				},
+				{
+					id: "0zdGcBMexiugXnCdfVgAo8",
+					name: "Good Enough",
+					release_year: 2021,
+					img_url: "https://i.scdn.co/image/ab67616d0000b273d711a5688eb04158eb209b02",
+					main_artist: "Koven"
+				},
+				{
+					id: "12h3MmGaan0abls3Xg1Mpy",
+					name: "Hymn",
+					release_year: 2015,
+					img_url: "https://i.scdn.co/image/ab67616d0000b273178a94189603caae1161aada",
+					main_artist: "Nightcall"
+				},
+				{
+					id: "2DOsq2dfLJ6p2dTcSZYNda",
+					name: "Love Wins Again",
+					release_year: 2019,
+					img_url: "https://i.scdn.co/image/ab67616d0000b27366017bc6a51e8b4c920d74c6",
+					main_artist: "Koven"
+				},
+				{
+					id: "2Zwc08pwCgQ6TNfQ8ZDxh3",
+					name: "Infinity Chasers",
+					release_year: 2017,
+					img_url: "https://i.scdn.co/image/ab67616d0000b273cf48e14a726ff6c9977fa641",
+					main_artist: "Fractal Dreamers"
+				},
+				{
+					id: "3Gpffv3gaD1UxQPeElIjCp",
+					name: "Batık Gemi",
+					release_year: 2023,
+					img_url: "https://i.scdn.co/image/ab67616d0000b273bc8e04d6c37ce05eff398ddd",
+					main_artist: "Semicenk"
+				},
+				{
+					id: "3io1vp9hVwvuHzI5iIeDhm",
+					name: "Like You",
+					release_year: 2013,
+					img_url: "https://i.scdn.co/image/ab67616d0000b273789858164ba4b65f2d26c5c0",
+					main_artist: "Fox Stevenson"
+				},
+				{
+					id: "5d1EmpjegN3JqRH3KIOJEB",
+					name: "Aloy'S Theme (Feat. Julie Elven) - Part 1 - Motherland",
+					release_year: 2017,
+					img_url: "https://i.scdn.co/image/ab67616d0000b2732523b2f62d91b1c9a82a0645",
+					main_artist: "Julie Elven"
+				}
+			],
+			user_id: "8rk0Huh902bhmog6ckYwcMux10h1",
+			friend_group_id: 48
+		}
+	],
+	[
+		116,
+		{
+			id: 116,
+			name: "New Playlist",
+			description: "",
+			songs: [],
+			user_id: "8rk0Huh902bhmog6ckYwcMux10h1",
+			friend_group_id: 48
+		}
 	]
 ]);

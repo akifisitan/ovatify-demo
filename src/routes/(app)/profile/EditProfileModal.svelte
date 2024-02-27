@@ -101,14 +101,12 @@
 		const token = await $user!.getIdToken();
 		const response = await deleteUserFromDatabase(token);
 		if (response.status === 204) {
-			firebaseDeleteUser();
-			resetUserData();
-			clearSpotifyState();
 			displayToast({
 				type: "success",
 				message: "Account deleted successfully"
 			});
-			$authFlowOngoing = true;
+			deleteConfirmDialogOpen = false;
+			dialogOpen = false;
 		} else {
 			displayToast({ type: "error", message: "Error deleting profile" });
 		}

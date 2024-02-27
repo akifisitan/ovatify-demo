@@ -16,7 +16,6 @@
 		loading = true;
 		const token = await $user!.getIdToken();
 		const response = await deleteFriendGroup(token, $page.params.group_id);
-		console.log(response);
 		if (response.status === 204) {
 			displayToast({
 				type: "success",

@@ -52,7 +52,6 @@
 		loadingSong = true;
 		const token = await $user!.getIdToken();
 		song = await getSongById(token, selectedSongId);
-		console.log(song);
 		loadingSong = false;
 	}
 
@@ -81,7 +80,6 @@
 		loading = true;
 		const token = await $user!.getIdToken();
 		const response = await deleteUserSongRating(token, selectedSongId);
-		console.log(response);
 		if (response.status === 204) {
 			displayToast({ message: "Rating deleted successfully", type: "success" });
 			deleteFromCache(songCache, selectedSongId);
@@ -111,7 +109,6 @@
 		loading = true;
 		const token = await $user!.getIdToken();
 		const response = await addSong(token, selectedSongId, rating);
-		console.log(response);
 		if (response.status >= 200 && response.status < 300) {
 			displayToast({ type: "success", message: "Rating added successfully" });
 			deleteFromCache(songCache, selectedSongId);

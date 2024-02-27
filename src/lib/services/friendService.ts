@@ -81,7 +81,7 @@ export async function getUserIncomingFriendRequests(token: string) {
 				{
 					id: "FJy62xD40UUcafkXsf6OM6ywjv43",
 					name: "xero1337",
-					img_url: "https://cdn.betterttv.net/emote/60257bf1d47a0b2db8d1a56d/3x.webp"
+					img_url: "/images/avatars/rocket.webp"
 				}
 			]
 		},
@@ -102,12 +102,12 @@ export async function getUserOutgoingFriendRequests(token: string) {
 				{
 					id: "loF0yZLq4afTQ9CRWIwvDbvOm5f2",
 					name: "pirlomania",
-					img_url: "https://cdn.betterttv.net/emote/5694fa70720c7d4179f14d50/3x.webp"
+					img_url: "/images/avatars/panda.webp"
 				},
 				{
 					id: "UPidReJdkFcemiAkDNhvgwUgHvq1",
 					name: "eo1903",
-					img_url: "https://cdn.betterttv.net/emote/5f2b04201ab9be446c4e58d9/3x.webp"
+					img_url: "/images/avatars/penguin.webp"
 				}
 			]
 		},
@@ -128,17 +128,17 @@ export async function getUserFriends(token: string) {
 				{
 					id: "1CeBdlPuPfXwUybIM26p3TAVBOn2",
 					name: "akif23",
-					img_url: "https://cdn.betterttv.net/emote/5f2b04201ab9be446c4e58d9/3x.webp"
+					img_url: "/images/avatars/penguin.webp"
 				},
 				{
 					id: "Aliw0soYldSwNGwT9GoPSil1OxQ2",
 					name: "johncena",
-					img_url: "https://cdn.betterttv.net/emote/6083074c39b5010444d04da1/3x.webp"
+					img_url: "/images/avatars/football.webp"
 				},
 				{
 					id: "pTDszgSapvN9dvNM6FFGxKnKnZe2",
 					name: "mike77",
-					img_url: "https://cdn.betterttv.net/emote/6037ae107c74605395f3419b/3x.webp"
+					img_url: "/images/avatars/bee.webp"
 				}
 			]
 		},
@@ -195,8 +195,7 @@ export async function getFriendSuggestions(token: string) {
 				{
 					id: 41,
 					suggester_name: "akif23",
-					suggester_img_url:
-						"https://cdn.betterttv.net/emote/5f2b04201ab9be446c4e58d9/3x.webp",
+					suggester_img_url: "/images/avatars/penguin.webp",
 					song_id: "4lQ0R8gZMc16khvAEWsZLG",
 					song_img_url:
 						"https://i.scdn.co/image/ab67616d0000b2735a11e6ccee5233eb49c64885",
@@ -205,8 +204,7 @@ export async function getFriendSuggestions(token: string) {
 				{
 					id: 42,
 					suggester_name: "johncena",
-					suggester_img_url:
-						"https://cdn.betterttv.net/emote/6083074c39b5010444d04da1/3x.webp",
+					suggester_img_url: "/images/avatars/football.webp",
 					song_id: "01V3FamQ70LSYhkDXz47Wt",
 					song_img_url:
 						"https://i.scdn.co/image/ab67616d0000b273071d26376b20e532b3129494",
@@ -215,8 +213,7 @@ export async function getFriendSuggestions(token: string) {
 				{
 					id: 43,
 					suggester_name: "mike77",
-					suggester_img_url:
-						"https://cdn.betterttv.net/emote/6037ae107c74605395f3419b/3x.webp",
+					suggester_img_url: "/images/avatars/bee.webp",
 					song_id: "1M85o2ruB9uTj68dIXj6dJ",
 
 					song_img_url:
@@ -275,17 +272,17 @@ export async function getConsentFriends(token: string) {
 				{
 					id: "1CeBdlPuPfXwUybIM26p3TAVBOn2",
 					name: "akif23",
-					img_url: "https://cdn.betterttv.net/emote/5f2b04201ab9be446c4e58d9/3x.webp"
+					img_url: "/images/avatars/penguin.webp"
 				},
 				{
 					id: "Aliw0soYldSwNGwT9GoPSil1OxQ2",
 					name: "johncena",
-					img_url: "https://cdn.betterttv.net/emote/6083074c39b5010444d04da1/3x.webp"
+					img_url: "/images/avatars/football.webp"
 				},
 				{
 					id: "pTDszgSapvN9dvNM6FFGxKnKnZe2",
 					name: "mike77",
-					img_url: "https://cdn.betterttv.net/emote/6037ae107c74605395f3419b/3x.webp"
+					img_url: "/images/avatars/bee.webp"
 				}
 			]
 		},

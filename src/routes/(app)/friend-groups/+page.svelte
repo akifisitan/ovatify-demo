@@ -30,7 +30,6 @@
 		loading = true;
 		const token = await $user!.getIdToken();
 		const response = await createFriendGroup(token, "New Friend Group");
-		console.log(response);
 		if (response.status === 201) {
 			displayToast({ message: "Friend group created successfully", type: "success" });
 			refresh = !refresh;

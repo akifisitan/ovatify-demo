@@ -6,8 +6,6 @@
 
 	export let dialogOpen: boolean;
 	export let members: GroupMember[];
-
-	$: console.log(members);
 </script>
 
 <Dialog.Root bind:open={dialogOpen}>

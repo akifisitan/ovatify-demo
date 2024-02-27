@@ -1,17 +1,11 @@
 <script lang="ts">
 	import AddedSongsBarChart from "$lib/components/charts/AddedSongsBarChart.svelte";
 	import RecentRatingsChart from "$lib/components/charts/RecentRatingsChart.svelte";
-	import {
-		getEntityCount,
-		getFriendEntityCount,
-		getRecentAdditionCounts,
-		getFriendRecentAdditionCounts
-	} from "$lib/services/userService";
+	import { getEntityCount, getRecentAdditionCounts } from "$lib/services/userService";
 	import { user } from "$lib/stores/user";
 	import * as Tabs from "$lib/components/ui/tabs";
 	import ShareOnSocialMedia from "$lib/components/charts/ShareOnSocialMedia.svelte";
 	import Spinner from "$lib/components/Spinner.svelte";
-	import CompareFriend from "./CompareFriend.svelte";
 
 	type ChartEntity = "artists" | "tempos" | "genres" | "moods";
 	type ChartData = {
@@ -25,19 +19,6 @@
 	async function getEntityChart(entity: ChartEntity) {
 		const token = await $user!.getIdToken();
 		const response = await getEntityCount(token, entity);
-		if (response.status === 200) {
-			const data = response.data;
-			return {
-				xValues: Object.keys(data).slice(0, 10),
-				yValues: Object.values(data).slice(0, 10) as number[]
-			};
-		}
-		return { xValues: [], yValues: [] };
-	}
-
-	async function getFriendEntityChart(friend_id: string, entity: ChartEntity) {
-		const token = await $user!.getIdToken();
-		const response = await getFriendEntityCount(token, friend_id, entity);
 		if (response.status === 200) {
 			const data = response.data;
 			return {
@@ -82,23 +63,6 @@
 		return { xValues: [], yValues: [] };
 	}
 
-	async function getFriendRecentChart(friend_id: string) {
-		console.log("Fetching data for friend with ID:", friend_id);
-
-		const token = await $user!.getIdToken();
-		const response = await getFriendRecentAdditionCounts(token, friend_id);
-		if (response.status === 200) {
-			console.log("Still ID:", friend_id);
-			const songCounts: { date: string; count: number }[] = response.data.song_counts;
-			const xValues = songCounts.map((entry) => entry.date);
-			const yValues = songCounts.map((entry) => entry.count);
-			console.log(xValues);
-			console.log(yValues);
-			return { xValues, yValues };
-		}
-		return { xValues: [], yValues: [] };
-	}
-
 	function recentChartShareText(data: { xValues: string[]; yValues: number[] }) {
 		let str = "Here's how many songs I have added in the last 5 days:\n\n";
 		const myArr = data.xValues.map((date, index) => `${date}: ${data.yValues[index]}`);
@@ -110,67 +74,14 @@
 	let currentEntity: ChartEntity = "artists";
 	let friendEntityChartData: ChartData = { xValues: [], yValues: [] };
 	let userRecentChartData: ChartData = { xValues: [], yValues: [] };
-	let friendRecentChartData: ChartData = { xValues: [], yValues: [] };
-	let friendToCompareId: string | null = null;
-	let friendToCompareName: string | null = null;
-
-	async function loadFriendEntityChartData(friendId: string, entity: ChartEntity) {
-		const data = await getFriendEntityChart(friendId, entity);
-		friendEntityChartData = { ...data };
-	}
-
-	async function loadFriendChartData(friendId: string) {
-		const data = await getFriendRecentChart(friendId);
-		friendRecentChartData = { ...data }; // Use spread operator to trigger reactivity
-		console.log("Updated friend chart data:", friendRecentChartData);
-	}
-
-	$: if (friendToCompareId) {
-		loadFriendChartData(friendToCompareId);
-		loadFriendEntityChartData(friendToCompareId, currentEntity);
-	} else {
-		friendRecentChartData = { xValues: [], yValues: [] };
-		friendEntityChartData = { xValues: [], yValues: [] };
-	}
 
 	$: getRecentChart().then((data) => {
 		userRecentChartData = data;
 	});
-
-	function handleCompareFriend(
-		event: CustomEvent<{ friendId: string; friendName: string }>
-	) {
-		friendToCompareId = event.detail.friendId;
-		friendToCompareName = event.detail.friendName;
-	}
-
-	function resetComparison() {
-		friendToCompareId = null;
-		friendToCompareName = null;
-	}
 </script>
 
 <div class="flex justify-between items-center w-full px-16">
-	<p class="text-5xl font-medium text-[#dfe3ee]">
-		Your Taste
-		<!-- {#if friendToCompareName}
-			You & {friendToCompareName}'s Tastes
-		{:else}
-			Your Taste
-		{/if} -->
-	</p>
-	<!-- <div class="flex gap-x-2">
-		{#if friendToCompareId !== null}
-			<button
-				on:click={resetComparison}
-				class="border-[0.5px] border-zinc-700 bg-[#520204] rounded-md text-white px-4 py-1 cursor-pointer hover:bg-[#781c1f]
-				transition-colors text-[13px] font-medium duration-300"
-			>
-				Reset Comparison
-			</button>
-		{/if}
-		<CompareFriend on:compare={handleCompareFriend} />
-	</div> -->
+	<p class="text-5xl font-medium text-[#dfe3ee]">Your Taste</p>
 </div>
 
 <div class="flex w-full h-full pt-5">
@@ -252,9 +163,7 @@
 								chartTitle=""
 								xValues={userRecentChartData.xValues}
 								yValues={userRecentChartData.yValues}
-								friendyValues={friendRecentChartData.yValues}
 								lineColor={colors[0]}
-								friendLineColor={"#006738"}
 							/>
 							<div class="flex justify-center items-center gap-2">
 								<p>Share on Social Media</p>

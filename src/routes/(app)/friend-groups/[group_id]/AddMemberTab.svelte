@@ -43,7 +43,6 @@
 			group_id: Number($page.params.group_id),
 			friend_name: username
 		});
-		console.log(response);
 		if (response.status === 200) {
 			displayToast({
 				type: "success",

@@ -1,5 +1,3 @@
-import * as api from "$lib/utils/api";
-
 export async function getRecentlyAddedSongs(token: string, numberOfSongs: number | null) {
 	console.log("Mocked getRecentlyAddedSongs |", token[0], numberOfSongs);
 	const mockResponse = {
@@ -234,30 +232,34 @@ export async function getEntityCount(
 	return mockResponse;
 }
 
-export async function getFriendEntityCount(
-	token: string,
-	friend_id: string,
-	entity: "artists" | "genres" | "moods" | "tempos"
-) {
-	const response = await api.get(
-		`users/get-friends-favorite-${entity}/?friend_id=${friend_id}`,
-		token
-	);
-	return response;
-}
-
 export async function editUserSongRating(token: string, songId: string, rating: number) {
 	const body = {
 		song_id: songId,
 		rating: rating
 	};
-	const response = await api.put(`users/edit-song-rating/`, token, body);
-	return response;
+	// const response = await api.put(`users/edit-song-rating/`, token, body);
+	// console.log(response);
+	console.log("Mocked editUserSongRating |", token[0], body);
+	const mockResponse = {
+		data: {
+			message: "User rating updated successfully"
+		},
+		error: null,
+		status: 201
+	} as any;
+	return mockResponse;
 }
 
 export async function deleteUserSongRating(token: string, songId: string) {
-	const response = await api.del(`users/delete-song-rating/?song_id=${songId}`, token);
-	return response;
+	// const response = await api.del(`users/delete-song-rating/?song_id=${songId}`, token);
+	// console.log(response);
+	console.log("Mocked deleteUserSongRating |", token[0], songId);
+	const mockResponse = {
+		data: null,
+		error: null,
+		status: 204
+	} as any;
+	return mockResponse;
 }
 
 export async function editUserProfile(
@@ -269,18 +271,18 @@ export async function editUserProfile(
 		data_sharing_consent?: boolean;
 	}
 ) {
-	return await api.put(`users/edit-user-preferences/`, token, body);
+	// return await api.put(`users/edit-user-preferences/`, token, body);
 	console.log("Mocked editUserProfile |", token[0], body);
 	const mockResponse = {
 		data: null,
 		error: null,
 		status: 204
-	};
+	} as any;
 	return mockResponse;
 }
 
 export async function getUserProfileStats(token: string) {
-	return await api.get("users/get-profile-stats/", token);
+	// return await api.get("users/get-profile-stats/", token);
 	console.log("Mocked getUserProfileStats |", token[0]);
 	const mockResponse = {
 		data: {
@@ -295,13 +297,13 @@ export async function getUserProfileStats(token: string) {
 }
 
 export async function getUserProfile(token: string) {
-	return await api.get(`users/get-user-profile/`, token);
+	// return await api.get(`users/get-user-profile/`, token);
 	console.log("Mocked getUserProfile |", token[0]);
 	const mockResponse = {
 		data: {
 			id: "8rk0Huh902bhmog6ckYwcMux10h1",
 			name: "akifisitan",
-			img_url: "https://cdn.betterttv.net/emote/5f409d334510395d822c2885/3x.webp",
+			img_url: "/images/avatars/bird.webp",
 			preferences: {
 				data_processing: false,
 				data_sharing: true
@@ -445,14 +447,6 @@ export async function getRecentAdditionCounts(token: string) {
 	return mockResponse;
 }
 
-export async function getFriendRecentAdditionCounts(token: string, friend_id: string) {
-	const response = await api.get(
-		`users/get-friends-recent-addition-counts?friend_id=${friend_id}`,
-		token
-	);
-	return response;
-}
-
 export async function uploadSongFile(token: string, file: File) {
 	console.log("Mocked uploadSongFile |", token[0], file);
 	const mockResponse = {
@@ -464,6 +458,12 @@ export async function uploadSongFile(token: string, file: File) {
 }
 
 export async function deleteUserFromDatabase(token: string) {
-	const response = await api.del("users/delete-user/", token);
-	return response;
+	// return await api.del("users/delete-user/", token);
+	console.log("Mocked deleteUserFromDatabase |", token[0]);
+	const mockResponse = {
+		status: 204,
+		error: null,
+		data: null
+	} as any;
+	return mockResponse;
 }
