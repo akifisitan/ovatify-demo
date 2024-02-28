@@ -1,4 +1,7 @@
+import { simulateNetworkLatency } from "$lib/mock/utils";
+
 export async function getUserArtistNames(token: string) {
+	await simulateNetworkLatency();
 	console.log("Mocked getUserArtistNames |", token[0]);
 	const mockResponse = {
 		data: {

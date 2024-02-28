@@ -1,8 +1,10 @@
 import { songDb } from "$lib/mock/mockSongDb";
+import { simulateNetworkLatency } from "$lib/mock/utils";
 // import * as api from "$lib/utils/api";
 
 export async function searchSpotifySong(token: string, query: string) {
 	// return await api.get(`songs/search-spotify/?search_string=${query}`, token);
+	await simulateNetworkLatency();
 	console.log("Mocked searchSpotifySong |", token[0], query);
 	const mockResponse = {
 		data: {
@@ -98,6 +100,7 @@ export async function searchSpotifySong(token: string, query: string) {
 
 export async function searchDatabaseSong(token: string, query: string) {
 	// return await api.get(`songs/search-db/?search_string=${query}`, token);
+	await simulateNetworkLatency();
 	console.log("Mocked searchDatabaseSong |", token[0], query);
 	const mockResponse = {
 		data: {
@@ -214,6 +217,7 @@ export async function addSong(token: string, id: string, rating: number) {
 	// };
 	// const response = await api.post("songs/add-song/", token, body);
 	// console.log(response);
+	await simulateNetworkLatency();
 	console.log("Mocked addSong |", token[0], id, rating);
 	const mockResponse = {
 		data: {
@@ -235,12 +239,13 @@ export async function getSongById(token: string, id: string) {
 	// }
 	// const data = response.data.song_info;
 	// return data;
+	console.log("Mocked getPlaylistById |", token[0], id);
 	const res = songDb.get(id);
-	console.log(res);
 	return res;
 }
 
 export async function getAllRecentSongs(token: string) {
+	await simulateNetworkLatency();
 	console.log("Mocked getAllRecentSongs |", token[0]);
 	const mockResponse = [
 		{

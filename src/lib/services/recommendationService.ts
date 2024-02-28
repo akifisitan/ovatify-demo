@@ -1,4 +1,7 @@
+import { simulateNetworkLatency } from "$lib/mock/utils";
+
 export async function recommendYouMightLike(token: string, count: number) {
+	await simulateNetworkLatency();
 	console.log("Mocked recommendYouMightLike |", token[0], count);
 	const mockResponse = {
 		data: {
@@ -69,6 +72,7 @@ export async function recommendYouMightLike(token: string, count: number) {
 }
 
 export async function recommendSinceYouLike(token: string, count: number) {
+	await simulateNetworkLatency();
 	console.log("Mocked recommendSinceYouLike |", token[0], count);
 	const mockResponse = {
 		data: {
@@ -373,6 +377,7 @@ export async function recommendSinceYouLike(token: string, count: number) {
 
 // Spotify song recommendation for friends
 export async function recommendFriendMix(token: string, count: number) {
+	await simulateNetworkLatency();
 	console.log("Mocked recommendFriendMix |", token[0], count);
 	const mockResponse = {
 		data: {
@@ -458,6 +463,7 @@ export async function recommendFriendMix(token: string, count: number) {
 
 // Database song recommendation for friends
 export async function recommendFriendsListen(token: string, count: number) {
+	await simulateNetworkLatency();
 	console.log("Mocked recommendFriendsListen |", token[0], count);
 	const mockResponse = {
 		data: {

@@ -1,6 +1,8 @@
 import { genreDb } from "$lib/mock/mockGenreDb";
+import { simulateNetworkLatency } from "$lib/mock/utils";
 
 export async function getRandomSongGenres(token: string, number: number) {
+	await simulateNetworkLatency();
 	console.log("Mocked getRandomSongGenres |", token[0], number);
 	const mockResponse = [
 		{
@@ -62,12 +64,14 @@ export async function getSongsByGenreName(
 	number: number,
 	genreName: string
 ) {
+	await simulateNetworkLatency();
 	console.log("Mocked getSongsByGenreName |", token[0], number, genreName);
 	// @ts-ignore
 	return genreDb[genreName].songs;
 }
 
 export async function getUserGenreNames(token: string) {
+	await simulateNetworkLatency();
 	console.log("Mocked getUserGenreNames |", token[0]);
 	const mockResponse = {
 		data: {

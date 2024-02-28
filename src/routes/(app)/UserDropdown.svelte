@@ -14,9 +14,6 @@
 		if (loading) return;
 		loading = true;
 		try {
-			await firebaseSignOut();
-			clearSpotifyState();
-			resetUserData();
 			displayToast({ type: "success", message: "Signed out successfully" });
 		} catch (error) {
 			displayToast({ type: "error", message: "Error signing out" });

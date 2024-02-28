@@ -1,8 +1,11 @@
+import { simulateNetworkLatency } from "$lib/mock/utils";
+
 export async function sendFriendRequest(token: string, friendUsername: string) {
 	// const body = {
 	// 	username: friendUsername
 	// };
 	// const response = await api.post(`users/send-friend-request/`, token, body);
+	await simulateNetworkLatency();
 	console.log("Mocked sendFriendRequest |", token[0], friendUsername);
 	const mockResponse = {
 		status: 200,
@@ -18,6 +21,7 @@ export async function cancelFriendRequest(token: string, friendUsername: string)
 	// };
 	// const response = await api.post(`users/cancel-friend-request/`, token, body);
 	// return response;
+	await simulateNetworkLatency();
 	console.log("Mocked cancelFriendRequest |", token[0], friendUsername);
 	const mockResponse = {
 		status: 200,
@@ -32,6 +36,7 @@ export async function acceptFriendRequest(token: string, friendUsername: string)
 	// 	username: friendUsername
 	// };
 	// return await api.post(`users/accept-friend-request/`, token, body);
+	await simulateNetworkLatency();
 	console.log("Mocked acceptFriendRequest |", token[0], friendUsername);
 	const mockResponse = {
 		status: 200,
@@ -46,6 +51,7 @@ export async function rejectFriendRequest(token: string, friendUsername: string)
 	// 	username: friendUsername
 	// };
 	// const response = await api.post("users/reject-friend-request/", token, body);
+	await simulateNetworkLatency();
 	console.log("Mocked rejectFriendRequest |", token[0], friendUsername);
 	const mockResponse = {
 		status: 200,
@@ -59,6 +65,7 @@ export async function getUserIncomingFriendRequestCount(token: string) {
 	// const response = await api.get(`users/get-incoming-request-count/`, token);
 	// console.log(response);
 	// return response;
+	await simulateNetworkLatency();
 	console.log("Mocked getUserIncomingFriendRequestCount |", token[0]);
 	const mockResponse = {
 		data: {
@@ -74,6 +81,7 @@ export async function getUserIncomingFriendRequests(token: string) {
 	// const response = await api.get(`users/get-all-incoming-requests/`, token);
 	// console.log(response);
 	// return response;
+	await simulateNetworkLatency();
 	console.log("Mocked getUserIncomingFriendRequests |", token[0]);
 	const mockResponse = {
 		data: {
@@ -95,6 +103,7 @@ export async function getUserOutgoingFriendRequests(token: string) {
 	// const response = await api.get(`users/get-all-outgoing-requests/`, token);
 	// console.log(response);
 	// return response;
+	await simulateNetworkLatency();
 	console.log("Mocked getUserOutgoingFriendRequests |", token[0]);
 	const mockResponse = {
 		data: {
@@ -121,6 +130,7 @@ export async function getUserFriends(token: string) {
 	// const response = await api.get(`users/get-all-friends/`, token);
 	// console.log(response);
 	// return response;
+	await simulateNetworkLatency();
 	console.log("Mocked getUserFriends |", token[0]);
 	const mockResponse = {
 		data: {
@@ -153,6 +163,7 @@ export async function suggestSong(
 	body: { receiver_user: string; song_id: string }
 ) {
 	// const response = await api.post(`users/suggest-song/`, token, body);
+	await simulateNetworkLatency();
 	console.log("Mocked suggestSong |", token[0], body);
 	const mockResponse = {
 		status: 200,
@@ -163,6 +174,7 @@ export async function suggestSong(
 }
 
 export async function getFriendSuggestionCount(token: string) {
+	await simulateNetworkLatency();
 	console.log("Mocked getFriendSuggestionCount |", token[0]);
 	const mockResponse = {
 		data: {
@@ -177,6 +189,7 @@ export async function getFriendSuggestionCount(token: string) {
 
 export async function setFriendSuggestionsAsSeen(token: string) {
 	// return await api.put(`users/set-suggestion-seen/`, token, null);
+	await simulateNetworkLatency();
 	console.log("Mocked setFriendSuggestionsAsSeen |", token[0]);
 	const mockResponse = {
 		status: 200,
@@ -188,6 +201,7 @@ export async function setFriendSuggestionsAsSeen(token: string) {
 
 export async function getFriendSuggestions(token: string) {
 	// return await api.get(`users/get-suggestions/`, token);
+	await simulateNetworkLatency();
 	console.log("Mocked getFriendSuggestions |", token[0]);
 	const mockResponse = {
 		data: {
@@ -233,6 +247,7 @@ export async function deleteFriendSuggestion(token: string, suggestionId: string
 	// 	`users/delete-suggestion/?suggestion_id=${suggestionId}`,
 	// 	token
 	// );
+	await simulateNetworkLatency();
 	console.log("Mocked deleteFriendSuggestion |", token[0], suggestionId);
 	const mockResponse = {
 		data: {
@@ -250,6 +265,7 @@ export async function removeFriend(token: string, friendUsername: string) {
 	// 	token
 	// );
 	// console.log(response);
+	await simulateNetworkLatency();
 	console.log("Mocked removeFriend |", token[0], friendUsername);
 	const mockResponse = {
 		data: {
@@ -265,6 +281,7 @@ export async function getConsentFriends(token: string) {
 	// const response = await api.get(`users/get-all-data-sharing-friends/`, token);
 	// console.log(response);
 	// return response;
+	await simulateNetworkLatency();
 	console.log("Mocked getConsentFriends |", token[0]);
 	const mockResponse = {
 		data: {

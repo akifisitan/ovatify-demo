@@ -1,4 +1,7 @@
+import { simulateNetworkLatency } from "$lib/mock/utils";
+
 export async function getRecentlyAddedSongs(token: string, numberOfSongs: number | null) {
+	await simulateNetworkLatency();
 	console.log("Mocked getRecentlyAddedSongs |", token[0], numberOfSongs);
 	const mockResponse = {
 		data: {
@@ -82,6 +85,7 @@ export async function getRecentlyAddedSongs(token: string, numberOfSongs: number
 }
 
 export async function getUserFavorites(token: string, numberOfSongs: number | null) {
+	await simulateNetworkLatency();
 	console.log("Mocked getUserFavorites |", token[0], numberOfSongs);
 	const mockResponse = {
 		data: {
@@ -173,6 +177,7 @@ export async function getEntityCount(
 	// 	`users/get-favorite-${entity}/?number_of_songs=${numberOfSongs}`,
 	// 	token
 	// );
+	await simulateNetworkLatency();
 	console.log("Mocked getEntityCount |", token[0], entity, numberOfSongs);
 	let mockResponse;
 	if (entity === "moods") {
@@ -239,6 +244,7 @@ export async function editUserSongRating(token: string, songId: string, rating: 
 	};
 	// const response = await api.put(`users/edit-song-rating/`, token, body);
 	// console.log(response);
+	await simulateNetworkLatency();
 	console.log("Mocked editUserSongRating |", token[0], body);
 	const mockResponse = {
 		data: {
@@ -253,6 +259,7 @@ export async function editUserSongRating(token: string, songId: string, rating: 
 export async function deleteUserSongRating(token: string, songId: string) {
 	// const response = await api.del(`users/delete-song-rating/?song_id=${songId}`, token);
 	// console.log(response);
+	await simulateNetworkLatency();
 	console.log("Mocked deleteUserSongRating |", token[0], songId);
 	const mockResponse = {
 		data: null,
@@ -272,6 +279,7 @@ export async function editUserProfile(
 	}
 ) {
 	// return await api.put(`users/edit-user-preferences/`, token, body);
+	await simulateNetworkLatency();
 	console.log("Mocked editUserProfile |", token[0], body);
 	const mockResponse = {
 		data: null,
@@ -283,6 +291,7 @@ export async function editUserProfile(
 
 export async function getUserProfileStats(token: string) {
 	// return await api.get("users/get-profile-stats/", token);
+	await simulateNetworkLatency();
 	console.log("Mocked getUserProfileStats |", token[0]);
 	const mockResponse = {
 		data: {
@@ -298,6 +307,7 @@ export async function getUserProfileStats(token: string) {
 
 export async function getUserProfile(token: string) {
 	// return await api.get(`users/get-user-profile/`, token);
+	await simulateNetworkLatency();
 	console.log("Mocked getUserProfile |", token[0]);
 	const mockResponse = {
 		data: {
@@ -317,6 +327,7 @@ export async function getUserProfile(token: string) {
 
 export async function exportSongsByGenre(token: string, genre: string) {
 	// return await api.get(`users/export-by-genre/?genre=${genre}`, token);
+	await simulateNetworkLatency();
 	console.log("Mocked exportSongsByGenre |", token[0], genre);
 	const mockResponse = {
 		data: [
@@ -382,6 +393,7 @@ export async function exportSongsByGenre(token: string, genre: string) {
 
 export async function exportSongsByArtist(token: string, artist: string) {
 	// return await api.get(`users/export-by-artist/?artist=${artist}`, token);
+	await simulateNetworkLatency();
 	console.log("Mocked exportSongsByArtist |", token[0], artist);
 	const mockResponse = {
 		data: [
@@ -414,6 +426,7 @@ export async function exportSongsByArtist(token: string, artist: string) {
 }
 
 export async function getRecentAdditionCounts(token: string) {
+	await simulateNetworkLatency();
 	// const response = await api.get(`users/get-recent-addition-counts`, token);
 	console.log("Mocked getRecentAdditionCounts |", token[0]);
 	const mockResponse = {
@@ -448,6 +461,7 @@ export async function getRecentAdditionCounts(token: string) {
 }
 
 export async function uploadSongFile(token: string, file: File) {
+	await simulateNetworkLatency();
 	console.log("Mocked uploadSongFile |", token[0], file);
 	const mockResponse = {
 		data: { items: [] },
@@ -458,6 +472,7 @@ export async function uploadSongFile(token: string, file: File) {
 }
 
 export async function deleteUserFromDatabase(token: string) {
+	await simulateNetworkLatency();
 	// return await api.del("users/delete-user/", token);
 	console.log("Mocked deleteUserFromDatabase |", token[0]);
 	const mockResponse = {
