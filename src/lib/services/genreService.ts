@@ -26,7 +26,7 @@ export async function getRandomSongGenres(token: string, number: number) {
 		{
 			id: 232,
 			name: "Pop",
-			img_url: "https://i.scdn.co/image/ab67616d0000b2730da1a7e7f3e9ef163e1c1dbf"
+			img_url: "https://i.scdn.co/image/ab67616d0000b273e8cdb38d791a31b4732b3070"
 		},
 		{
 			id: 226,

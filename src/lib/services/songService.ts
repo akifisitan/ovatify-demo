@@ -1,5 +1,5 @@
-import * as api from "$lib/utils/api";
-import { getFromCache, saveToCache, songCache } from "$lib/utils/caches";
+import { songDb } from "$lib/mock/mockSongDb";
+// import * as api from "$lib/utils/api";
 
 export async function searchSpotifySong(token: string, query: string) {
 	// return await api.get(`songs/search-spotify/?search_string=${query}`, token);
@@ -226,27 +226,18 @@ export async function addSong(token: string, id: string, rating: number) {
 }
 
 export async function getSongById(token: string, id: string) {
-	const cachedMinutes = 2;
-	const cachedData = getFromCache(songCache, id);
-	if (cachedData.data && !cachedData.stale) {
-		return cachedData.data;
-	}
-	const response = await api.get(`songs/get-song-by-id/?song_id=${id}`, token);
-	// console.log("Mocked getSongById |", token[0], id);
-	// const response = {
-	// 	data: { message: "song found", song_info: songDb.get(id)! },
-	// 	error: null,
-	// 	status: 200
-	// };
-	console.log(response);
-	if (response.status !== 200) {
-		console.log("Error fetching song");
-		console.log(response);
-		return null;
-	}
-	const data = response.data.song_info;
-	saveToCache(songCache, id, data, cachedMinutes);
-	return data;
+	// const response = await api.get(`songs/get-song-by-id/?song_id=${id}`, token);
+	// console.log(response);
+	// if (response.status !== 200) {
+	// 	console.log("Error fetching song");
+	// 	console.log(response);
+	// 	return null;
+	// }
+	// const data = response.data.song_info;
+	// return data;
+	const res = songDb.get(id);
+	console.log(res);
+	return res;
 }
 
 export async function getAllRecentSongs(token: string) {

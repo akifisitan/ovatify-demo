@@ -310,8 +310,15 @@ export const genreDb = {
 	Pop: {
 		id: 232,
 		name: "Pop",
-		img_url: "https://i.scdn.co/image/ab67616d0000b2730da1a7e7f3e9ef163e1c1dbf",
+		img_url: "https://i.scdn.co/image/ab67616d0000b273e8cdb38d791a31b4732b3070",
 		songs: [
+			{
+				id: "67Y5TUpVRkdEqnnhpXUTp1",
+				name: "Make You Say - Ellis Remix",
+				release_year: 2023,
+				main_artist: "Ellis",
+				img_url: "https://i.scdn.co/image/ab67616d0000b273e8cdb38d791a31b4732b3070"
+			},
 			{
 				id: "7o1Pm9jpH0wFpN5g793Lnq",
 				name: "Can'T Remember To Forget You (Feat. Rihanna)",
@@ -367,13 +374,6 @@ export const genreDb = {
 				release_year: 2021,
 				main_artist: "Megan Thee Stallion",
 				img_url: "https://i.scdn.co/image/ab67616d0000b27354d075797911e02360beb3e7"
-			},
-			{
-				id: "67Y5TUpVRkdEqnnhpXUTp1",
-				name: "Make You Say - Ellis Remix",
-				release_year: 2023,
-				main_artist: "Ellis",
-				img_url: "https://i.scdn.co/image/ab67616d0000b273e8cdb38d791a31b4732b3070"
 			},
 			{
 				id: "64YAQSR4jfmtHeJudcQix2",
