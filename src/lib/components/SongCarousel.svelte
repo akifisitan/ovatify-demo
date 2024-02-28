@@ -60,7 +60,10 @@
 							on:click={async () => {
 								if (loading) return;
 								importPlaylistSpotifyDialogOpen = true;
-							}}><Icons.spotify class="w-5 h-5" /></Button
+							}}
+							><Icons.spotify class="w-5 h-5" /><span class="sr-only"
+								>Import playlist to Spotify</span
+							></Button
 						>
 					</div>
 					<!-- Import playlist to spotify modal -->
@@ -107,7 +110,10 @@
 							on:click={() => {
 								if (loading) return;
 								saveAsPlaylistDialogOpen = true;
-							}}><Download class="w-5 h-5" /></Button
+							}}
+							><Download class="w-5 h-5" /><span class="sr-only"
+								>Save songs as playlist</span
+							></Button
 						>
 					</div>
 					<!-- Import playlist to spotify modal -->
@@ -199,7 +205,7 @@
 							<img
 								src={song.img_url || defaultImageUrl}
 								alt={song.name}
-								class="object-cover rounded-lg aspect-square"
+								class="w-48 h-48 object-cover rounded-lg aspect-square"
 							/>
 							<p class="pt-4 truncate">
 								{song.name}

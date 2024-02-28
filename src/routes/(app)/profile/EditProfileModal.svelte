@@ -8,13 +8,8 @@
 	import ChooseImageModal from "./ChooseImageModal.svelte";
 	import Button from "$lib/components/ui/button/button.svelte";
 	import { Switch } from "$lib/components/ui/switch";
-	import { resetUserData, userData } from "$lib/stores/userData";
-	import { firebaseDeleteUser } from "$lib/utils/firebase";
+	import { userData } from "$lib/stores/userData";
 	import { cn } from "$lib/utils";
-	import { clearSpotifyState } from "$lib/utils/spotify";
-	import { sleep } from "$lib/utils/time";
-	import { goto } from "$app/navigation";
-	import { authFlowOngoing } from "$lib/stores/authState";
 
 	export let dialogOpen: boolean;
 	let imageUrl = $userData.img_url;

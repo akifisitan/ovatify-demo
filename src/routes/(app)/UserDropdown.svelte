@@ -3,10 +3,8 @@
 	import * as Avatar from "$lib/components/ui/avatar";
 	import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
 	import { displayToast } from "$lib/utils/toast";
-	import { firebaseSignOut } from "$lib/utils/firebase";
-	import { resetUserData, userData } from "$lib/stores/userData";
+	import { userData } from "$lib/stores/userData";
 	import { dev } from "$app/environment";
-	import { clearSpotifyState } from "$lib/utils/spotify";
 
 	let loading = false;
 

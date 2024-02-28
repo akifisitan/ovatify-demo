@@ -172,6 +172,7 @@
 				class="p-0 h-8 w-8 xsm:h-12 xsm:w-12 rounded-full"
 			>
 				<Search class="h-6 w-6" />
+				<span class="sr-only">Search songs, albums, artists</span>
 			</Button>
 		</div>
 		<div class="w-16 flex justify-center items-center pr-4">

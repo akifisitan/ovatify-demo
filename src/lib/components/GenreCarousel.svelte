@@ -57,8 +57,8 @@
 							<div class="w-48 h-60 rounded-lg">
 								<img
 									src={genre.img_url || defaultImageUrl}
-									alt={genre.name}
-									class="object-cover rounded-lg aspect-square"
+									alt="{genre.name} genre cover image"
+									class="w-48 h-48 object-cover rounded-lg aspect-square"
 								/>
 								<p class="py-4 truncate">
 									{genre.name}
