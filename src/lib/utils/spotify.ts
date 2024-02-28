@@ -1,8 +1,4 @@
 import { SpotifyApi } from "@spotify/web-api-ts-sdk";
-import {
-	PUBLIC_SPOTIFY_CLIENT_ID,
-	PUBLIC_SPOTIFY_REDIRECT_URI
-} from "$env/static/public";
 
 const scopes = [
 	"user-read-private",
@@ -16,8 +12,8 @@ const scopes = [
 ];
 
 export const spotify = SpotifyApi.withUserAuthorization(
-	PUBLIC_SPOTIFY_CLIENT_ID,
-	PUBLIC_SPOTIFY_REDIRECT_URI,
+	"PUBLIC_SPOTIFY_CLIENT_ID", // Removed for demo
+	"PUBLIC_SPOTIFY_REDIRECT_URI", // Removed for demo
 	scopes
 );
 
